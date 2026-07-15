@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gabriel Quellec — CV</title>
+  <meta
+    name="description"
+    content="CV / portfolio de Gabriel Quellec, étudiant ingénieur à l'ISEN Brest, à la recherche d'une alternance en cybersécurité."
+  />
+
+  <!-- Deux polices Google Fonts : une pour les titres (Space Grotesk),
+       une pour le texte courant (Inter). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- ===================== NAVIGATION FLOTTANTE ===================== -->
+  <!-- data-nav sert de "marque-page" pour script.js : il repère les liens
+       ici pour changer leur style quand on arrive sur la section visée. -->
+  <nav class="nav">
+    <ul class="nav-list">
+      <li><a href="#accueil" class="nav-link" data-nav>Accueil</a></li>
+      <li><a href="#experiences" class="nav-link" data-nav>Expériences</a></li>
+      <li><a href="#formation" class="nav-link" data-nav>Formation</a></li>
+      <li><a href="#projets" class="nav-link" data-nav>Projets</a></li>
+      <li><a href="#competences" class="nav-link" data-nav>Compétences</a></li>
+      <li><a href="#contact" class="nav-link" data-nav>Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== ACCUEIL (page 1) ===================== -->
+  <header id="accueil" class="section hero">
+    <!-- Deux ronds flous en fond, juste un effet de lumière -->
+    <div class="glow glow-top"></div>
+    <div class="glow glow-bottom"></div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="kicker">Curriculum Vitae Virtuel</p>
+        <h1 class="hero-name">Gabriel Quellec</h1>
+
+        <p class="search-badge">🎯 Recherche alternance · Cybersécurité · Rentrée Septembre 2027</p>
+
+        <p class="hero-profil">
+          Étudiant ingénieur à l'ISEN Brest, je développe un profil technique polyvalent et une
+          bonne compréhension globale des systèmes informatiques. Attiré par la diversité des
+          défis que pose la sécurité, je recherche une alternance pour acquérir une expertise
+          terrain et m'orienter vers ce secteur en pleine évolution.
+        </p>
+
+        <div class="hero-meta">
+          <span>📍 Guipavas (29)</span>
+          <span>21 ans</span>
+          <span>Permis B (véhiculé)</span>
+        </div>
+
+        <a class="btn" href="CV.pdf" download>⬇ Télécharger le CV</a>
+      </div>
+
+      <div class="hero-photo">
+        <div class="hero-photo-ring">
+          <img src="img/visage.jpg" alt="Photo de Gabriel Quellec" />
+        </div>
+      </div>
+    </div>
+
+    <a href="#experiences" class="scroll-hint" aria-label="Défiler vers la suite">↓</a>
+  </header>
+
+  <main>
+    <!-- ===================== EXPÉRIENCES (page 2) ===================== -->
+    <section id="experiences" class="section light">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="title-bar"></span>Expériences</h2>
+
+        <!-- Timeline horizontale : sur grand écran, les étapes s'alignent sur
+             une ligne, alternées au-dessus/en-dessous. Sur mobile, le CSS la
+             transforme automatiquement en timeline verticale (plus lisible). -->
+        <div class="timeline" data-reveal-group>
+          <div class="timeline-item above" data-reveal>
+            <div class="timeline-card">
+              <span class="timeline-date">2025–2026</span>
+              <h3>Trésorier</h3>
+              <p class="timeline-org">BDE ISEN, Brest</p>
+              <p class="timeline-desc">
+                Gestion du budget associatif, suivi des dépenses et recettes, validation des
+                achats et traitement des dossiers administratifs.
+              </p>
+            </div>
+            <span class="timeline-dot">💼</span>
+          </div>
+
+          <div class="timeline-item below" data-reveal>
+            <span class="timeline-dot">💼</span>
+            <div class="timeline-card">
+              <span class="timeline-date">10/2025</span>
+              <h3>Vendeur</h3>
+              <p class="timeline-org">Jardiland, Guipavas</p>
+              <p class="timeline-desc">
+                Mise en rayon, réassort, entretien de l'espace de vente et orientation des
+                clients.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item above" data-reveal>
+            <div class="timeline-card">
+              <span class="timeline-date">Été 2025</span>
+              <h3>Opérateur de conditionnement</h3>
+              <p class="timeline-org">Wahou, Plouédern</p>
+              <p class="timeline-desc">
+                Application des procédures qualité et normes d'hygiène sur ligne de production à
+                cadence soutenue.
+              </p>
+            </div>
+            <span class="timeline-dot">💼</span>
+          </div>
+
+          <div class="timeline-item below" data-reveal>
+            <span class="timeline-dot">💼</span>
+            <div class="timeline-card">
+              <span class="timeline-date">2020–2026</span>
+              <h3>Ouvrier pépiniériste</h3>
+              <p class="timeline-org">Stervinou, Milizac</p>
+              <p class="timeline-desc">
+                Conduite d'engins, réparations, entretien des cultures et pilotage d'un chantier de
+                rempotage (sélection sur liste, tri des plants) sur 7 saisons.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FORMATION (page 3) ===================== -->
+    <section id="formation" class="section light">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="title-bar"></span>Formation</h2>
+
+        <div class="timeline" data-reveal-group>
+          <div class="timeline-item above" data-reveal>
+            <div class="timeline-card">
+              <span class="timeline-date">2023–2025</span>
+              <h3>Classe Préparatoire Intégrée</h3>
+              <p class="timeline-org">ISEN, Brest</p>
+              <p class="timeline-desc">
+                Mathématiques (probabilités, analyse), physique, sciences de l'ingénieur, Python.
+              </p>
+            </div>
+            <span class="timeline-dot">🎓</span>
+          </div>
+
+          <div class="timeline-item below" data-reveal>
+            <span class="timeline-dot">🎓</span>
+            <div class="timeline-card">
+              <span class="timeline-date">2025 – Présent</span>
+              <h3>École d'ingénieur</h3>
+              <p class="timeline-org">ISEN, Brest</p>
+              <p class="timeline-desc">
+                Programmation (C, Python), électronique (STM32), statistiques (R), base de données
+                (SQL), big data, gestion de projets.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJETS (page 4) ===================== -->
+    <section id="projets" class="section light">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="title-bar"></span>Projets Techniques</h2>
+
+        <div class="project-grid" data-reveal-group>
+          <article class="project-card" data-reveal>
+            <span class="project-number">01</span>
+            <div class="project-body">
+              <div class="project-head">
+                <h3>Application de gestion de trésorerie — BDE ISEN</h3>
+                <span class="project-status">en cours</span>
+              </div>
+              <div class="tag-list">
+                <span class="tag">Python</span>
+                <span class="tag">WEB</span>
+              </div>
+              <ul class="project-list">
+                <li>Application web en cours de développement pour centraliser la gestion
+                  financière du BDE ISEN.</li>
+                <li>Suivi des dépenses et recettes, gestion des factures et tableau de bord de
+                  trésorerie.</li>
+                <li>Coordination des clubs associatifs : centralisation des demandes de budget et
+                  validation des achats.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <span class="project-number">02</span>
+            <div class="project-body">
+              <div class="project-head">
+                <h3>Analyse EEG des variations d'ondes cérébrales selon l'activité mentale</h3>
+              </div>
+              <div class="tag-list">
+                <span class="tag">Python</span>
+                <span class="tag">R</span>
+                <span class="tag">BioPac</span>
+              </div>
+              <ul class="project-list">
+                <li>Conception d'un protocole expérimental : test de calcul mental sur logiciel
+                  Python sur mesure, acquisition via 3 électrodes (front, inion, mastoïde) sur
+                  équipement BioPac.</li>
+                <li>Nettoyage et filtrage des artefacts sur un jeu de 200 000 lignes, isolation des
+                  ondes alpha, bêta et thêta (Python).</li>
+                <li>Visualisation des variations d'ondes par type d'activité (Python) et analyse
+                  statistique comparative (R).</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <span class="project-number">03</span>
+            <div class="project-body">
+              <div class="project-head">
+                <h3>Application WEB de visualisation de bornes électriques</h3>
+              </div>
+              <div class="tag-list">
+                <span class="tag">WEB</span>
+                <span class="tag">IA</span>
+                <span class="tag">BigData</span>
+              </div>
+              <ul class="project-list">
+                <li>Développement web : conception des interfaces utilisateur et gestion d'une base
+                  de données.</li>
+                <li>Intelligence artificielle : entraînement d'un modèle de prédiction de la
+                  puissance électrique et du type d'implantation.</li>
+                <li>Big Data : nettoyage et transformation du jeu de données, production de
+                  visualisations synthétiques.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <span class="project-number">04</span>
+            <div class="project-body">
+              <div class="project-head">
+                <h3>Régulation de température sur microcontrôleur STM32</h3>
+              </div>
+              <div class="tag-list">
+                <span class="tag">C</span>
+                <span class="tag">Électronique</span>
+              </div>
+              <ul class="project-list">
+                <li>Programmation en C d'une boucle d'asservissement pour maintenir une consigne de
+                  température sur STM32.</li>
+                <li>Interfaçage des capteurs de température et actionneurs, lecture des signaux et
+                  pilotage en temps réel.</li>
+                <li>Conception du schéma électronique, câblage et soudure des composants sur carte
+                  prototype.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Carte "et le reste" : plutôt que de tout lister ici, on renvoie
+               directement vers le profil GitHub pour les projets plus petits. -->
+          <a
+            class="project-card project-card-more"
+            href="https://github.com/Gabz29"
+            target="_blank"
+            rel="noreferrer"
+            data-reveal
+          >
+            <span class="project-more-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.17c-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.09-.12-.3-.52-1.48.11-3.08 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.6.24 2.78.12 3.08.74.8 1.18 1.83 1.18 3.09 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.07.78 2.16v3.2c0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z" />
+              </svg>
+            </span>
+            <p>Voir plus de projets<br />sur GitHub</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== COMPÉTENCES (page 5) ===================== -->
+    <section id="competences" class="section light">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="title-bar"></span>Compétences &amp; Intérêts</h2>
+
+        <div class="skills-list" data-reveal-group>
+          <div class="skills-row" data-reveal>
+            <div class="skills-label">
+              <span class="skills-icon">💻</span>
+              <h3>Programmation</h3>
+            </div>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">C</span>
+              <span class="tag">R</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">PHP</span>
+              <span class="tag">JS</span>
+            </div>
+          </div>
+
+          <div class="skills-row" data-reveal>
+            <div class="skills-label">
+              <span class="skills-icon">🛠️</span>
+              <h3>Logiciels</h3>
+            </div>
+            <div class="tag-list">
+              <span class="tag">Pack Office</span>
+              <span class="tag">Power BI</span>
+              <span class="tag">JMerise</span>
+              <span class="tag">Blender</span>
+              <span class="tag">BSL Analysis</span>
+              <span class="tag">Git/GitHub</span>
+              <span class="tag">VirtualBox (Linux)</span>
+            </div>
+          </div>
+
+          <div class="skills-row" data-reveal>
+            <div class="skills-label">
+              <span class="skills-icon">🤝</span>
+              <h3>Soft Skills</h3>
+            </div>
+            <div class="tag-list">
+              <span class="tag">Esprit d'analyse</span>
+              <span class="tag">Travail d'équipe</span>
+              <span class="tag">Rigueur</span>
+              <span class="tag">Proactif</span>
+            </div>
+          </div>
+
+          <div class="skills-row" data-reveal>
+            <div class="skills-label">
+              <span class="skills-icon">🌐</span>
+              <h3>Langues</h3>
+            </div>
+            <div class="tag-list">
+              <span class="tag">Anglais (Renforcé)</span>
+              <span class="tag">Allemand (Notions)</span>
+              <span class="tag">Certification Voltaire (Niveau Affaires)</span>
+            </div>
+          </div>
+
+          <div class="skills-row" data-reveal>
+            <div class="skills-label">
+              <span class="skills-icon">⚡</span>
+              <h3>Centres d'intérêt</h3>
+            </div>
+            <div class="tag-list">
+              <span class="tag">Football</span>
+              <span class="tag">Course à pied</span>
+              <span class="tag">Fitness</span>
+              <span class="tag">Modélisation 3D</span>
+              <span class="tag">Innovations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== CONTACT (dernière page) ===================== -->
+  <footer id="contact" class="section hero">
+    <div class="glow glow-top"></div>
+    <div class="glow glow-bottom"></div>
+
+    <div class="contact-content">
+      <h2 class="section-title contact-title"><span class="title-bar"></span>Contact</h2>
+      <p class="contact-subtitle">
+        Disponible pour échanger sur une alternance en cybersécurité, par téléphone, mail ou
+        réseaux.
+      </p>
+
+      <div class="contact-grid" data-reveal-group>
+        <a class="contact-card" href="tel:+33769585600" data-reveal>
+          <span class="contact-icon">📞</span>
+          <span>
+            <span class="contact-label">Téléphone</span>
+            <span class="contact-value">07 69 58 56 00</span>
+          </span>
+        </a>
+
+        <a class="contact-card" href="mailto:gabri.quellec@gmail.com" data-reveal>
+          <span class="contact-icon">📧</span>
+          <span>
+            <span class="contact-label">Email</span>
+            <span class="contact-value">gabri.quellec@gmail.com</span>
+          </span>
+        </a>
+
+        <a
+          class="contact-card"
+          href="https://www.linkedin.com/in/gabriel-quellec-a16b93348"
+          target="_blank"
+          rel="noreferrer"
+          data-reveal
+        >
+          <span class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.11 20.45H3.56V9h3.55v11.45Z" />
+            </svg>
+          </span>
+          <span>
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">gabriel-quellec</span>
+          </span>
+        </a>
+
+        <a
+          class="contact-card"
+          href="https://github.com/Gabz29"
+          target="_blank"
+          rel="noreferrer"
+          data-reveal
+        >
+          <span class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.17c-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.09-.12-.3-.52-1.48.11-3.08 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.6.24 2.78.12 3.08.74.8 1.18 1.83 1.18 3.09 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.07.78 2.16v3.2c0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z" />
+            </svg>
+          </span>
+          <span>
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">Gabz29</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
