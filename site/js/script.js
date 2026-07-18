@@ -1,46 +1,88 @@
 // ============================================================
-// 1. SURLIGNER LE LIEN ACTIF DU MENU
-// On observe chaque grande section (<header id="accueil">, <section id="...">,
-// <footer id="contact">) et on regarde laquelle est actuellement au milieu de
-// l'écran, pour mettre en couleur (.active) le lien du menu correspondant.
+// 1. TITRES DE SECTION : un cadre autour de chaque lettre
+// On découpe le texte de chaque .section-title en une série de
+// <span class="letter">, un par caractère. Un espace devient un
+// span "letter-space" (sans cadre, voir style.css), juste pour
+// garder l'espacement entre les mots.
 // ============================================================
-const sections = document.querySelectorAll("section[id], header[id], footer[id]");
+document.querySelectorAll(".section-title").forEach((title) => {
+  const text = title.textContent;
+  title.textContent = ""; // on vide le titre, on va le reconstruire avec des spans
+
+  text.split("").forEach((char) => {
+    const letter = document.createElement("span");
+    if (char === " ") {
+      letter.className = "letter letter-space";
+    } else {
+      letter.className = "letter";
+      letter.textContent = char;
+    }
+    title.appendChild(letter);
+  });
+});
+
+// ============================================================
+// 2. ACCORDÉON (section Parcours)
+// Un seul élément ouvert à la fois : cliquer sur un titre ouvre sa
+// carte et referme celle qui était ouverte avant.
+// ============================================================
+const accordionItems = document.querySelectorAll(".accordion-item");
+
+accordionItems.forEach((item) => {
+  const header = item.querySelector(".accordion-header");
+
+  header.addEventListener("click", () => {
+    const wasOpen = item.classList.contains("is-open");
+
+    accordionItems.forEach((other) => other.classList.remove("is-open"));
+
+    if (!wasOpen) {
+      item.classList.add("is-open");
+    }
+  });
+});
+
+// ============================================================
+// 3. LIEN ACTIF DU MENU SELON LA SECTION VISIBLE
+// ============================================================
+const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll("[data-nav]");
 
 const navObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-
       navLinks.forEach((link) => {
         const isCurrent = link.getAttribute("href") === `#${entry.target.id}`;
         link.classList.toggle("active", isCurrent);
       });
     });
   },
-  { rootMargin: "-45% 0px -45% 0px" } // ne compte que la bande au milieu de l'écran
+  { rootMargin: "-45% 0px -45% 0px" }
 );
 
 sections.forEach((section) => navObserver.observe(section));
 
 // ============================================================
-// 2. ANIMATION D'APPARITION AU SCROLL
-// Tous les éléments marqués data-reveal démarrent invisibles (voir style.css).
-// Dès qu'un élément entre dans l'écran, on lui ajoute la classe "is-visible",
-// ce qui déclenche la transition CSS (fondu + léger décalage vers le haut).
+// 4. APPARITION / DISPARITION AU SCROLL (tous les [data-reveal])
+// Contrairement à un simple "reveal one-shot", on ne fait JAMAIS
+// unobserve() : la classe .is-visible est retirée dès que l'élément
+// n'est plus dans la zone visible, pas juste ajoutée une fois.
+// rootMargin ne réduit la zone "visible" qu'en HAUT (de --nav-height,
+// la hauteur de la nav flottante) : la limite qui déclenche le
+// fondu est donc pile sous la nav, que l'élément la franchisse en
+// scrollant vers le haut ou vers le bas (l'IntersectionObserver ne
+// se soucie pas de la direction, seulement de la position actuelle).
 // ============================================================
 const revealItems = document.querySelectorAll("[data-reveal]");
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        revealObserver.unobserve(entry.target); // une seule fois suffit
-      }
+      entry.target.classList.toggle("is-visible", entry.isIntersecting);
     });
   },
-  { threshold: 0.15 }
+  { rootMargin: "-90px 0px 0px 0px", threshold: 0 }
 );
 
 revealItems.forEach((item) => revealObserver.observe(item));
