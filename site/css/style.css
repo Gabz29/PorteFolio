@@ -29,6 +29,11 @@
 
 html {
   scroll-behavior: smooth;
+  /* Filet de sécurité : empêche tout élément qui déborderait légèrement
+     (ex. la nav sur très petit écran) de créer un scroll horizontal qui
+     décale et "coupe" le reste de la page. N'a aucun effet sur ordi, où
+     rien ne déborde déjà. */
+  overflow-x: hidden;
 }
 
 /* Grille légère en fond, façon plan/schéma d'ingénieur : deux dégradés
@@ -750,12 +755,37 @@ button {
     padding-left: 0.25rem;
   }
 
+  /* La pilule ne doit jamais dépasser la largeur de l'écran : elle est
+     centrée via left:50%, donc si son contenu est plus large que
+     l'écran, les liens du bord sont poussés hors champ des deux
+     côtés. On la contraint à la largeur dispo et, si les 5 liens ne
+     tiennent toujours pas (très petits écrans), on la rend défilable
+     horizontalement plutôt que coupée. */
+  .navbar {
+    max-width: calc(100vw - 1.5rem);
+  }
+
   .navbar ul {
-    gap: 1rem;
-    padding: 0.7rem 1.1rem;
+    gap: 0.6rem;
+    padding: 0.7rem 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .navbar ul::-webkit-scrollbar {
+    display: none;
   }
 
   .nav-link {
     font-size: 0.7rem;
+    white-space: nowrap;
+  }
+
+  /* Sur mobile les cartes projets restent en colonne (voir règle de
+     base) : moins de padding latéral pour laisser respirer le texte
+     sans rien changer à la mise en page 2 colonnes du desktop. */
+  .stack-card {
+    padding: 1.5rem;
   }
 }
