@@ -766,8 +766,8 @@ button {
   }
 
   .navbar ul {
-    gap: 0.6rem;
-    padding: 0.7rem 1rem;
+    gap: 0.4rem;
+    padding: 0.6rem 0.8rem;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -778,7 +778,7 @@ button {
   }
 
   .nav-link {
-    font-size: 0.7rem;
+    font-size: 0.62rem;
     white-space: nowrap;
   }
 
