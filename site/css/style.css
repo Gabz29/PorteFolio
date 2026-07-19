@@ -481,6 +481,21 @@ button {
 .stack-card:nth-child(4) { top: 10.5rem; }
 .stack-card:nth-child(5) { top: 12rem; }
 
+/* En dessous de 800px, la carte passe en colonne (image au-dessus du
+   texte, voir plus bas) : elle est donc bien plus haute qu'en rangée.
+   Avec l'empilement sticky ci-dessus, la carte suivante se collait
+   trop tôt et venait recouvrir la fin du texte avant la fin du scroll
+   (ex: la dernière phrase de la liste à puces devenait illisible).
+   On désactive donc l'effet ici : les cartes s'enchaînent simplement
+   les unes en dessous des autres, entièrement visibles. */
+@media (max-width: 799px) {
+  .stack-card {
+    position: static;
+    min-height: auto;
+    box-shadow: none;
+  }
+}
+
 /* Espace réservé à l'image (voir la vraie balise <img> à venir dans
    index.html). Tant qu'il n'y a pas de fichier, un simple cadre en
    pointillés avec un texte de rappel. */
