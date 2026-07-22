@@ -1,11 +1,37 @@
 # CV — Gabriel Quellec
 
-Site portfolio / CV en ligne, en une page, présentant mon profil, mon parcours,
-mes projets et mes coordonnées.
+Portfolio / CV en ligne, en une page, pour Gabriel Quellec, étudiant ingénieur à l'ISEN Brest à la recherche d'un stage international et d'une alternance en cybersécurité.
 
-**En ligne :** [gabz29.github.io/PorteFolio](https://gabz29.github.io/PorteFolio/) (hébergé via GitHub Pages)
+**En ligne :** [gabz29.github.io/PorteFolio](https://gabz29.github.io/PorteFolio/)
 
-## Structure
+## Fonctionnalités
+
+- Profil, hard skills et soft skills
+- Parcours (formations, expériences) en accordéon
+- Projets récents avec description et technologies utilisées
+- Contact direct (email, téléphone, réseaux) et CV téléchargeable
+- Thème sombre, mise en page responsive, animations au scroll
+
+## Prérequis
+
+Aucun — HTML / CSS / JavaScript statique, sans dépendance ni build.
+
+## Installation
+
+```bash
+git clone git@github.com:Gabz29/PorteFolio.git
+cd PorteFolio
+```
+
+## Utilisation
+
+Ouvrir `index.html` directement dans un navigateur, ou servir le dossier avec un petit serveur local :
+
+```bash
+npx serve .
+```
+
+## Structure du projet
 
 ```
 index.html              Page unique (entrée du site)
@@ -16,23 +42,6 @@ site/
   CV_Gabriel_Quellec.pdf  CV téléchargeable depuis la section Contact
 ```
 
-## Sections
-
-- **Accueil** — nom, recherche actuelle (stage / alternance)
-- **Profil** — bio, hard skills, soft skills
-- **Parcours** — formations et expériences en accordéon
-- **Projets** — projets récents avec description et technologies
-- **Contact** — email, téléphone, réseaux, téléchargement du CV
-
-## Lancer le site en local
-
-Aucune dépendance ni build : ouvrir `index.html` directement dans un navigateur,
-ou servir le dossier avec un petit serveur local, par exemple :
-
-```
-npx serve .
-```
-
-## Stack
+## Technologies
 
 HTML / CSS / JavaScript vanilla — pas de framework ni de build step.

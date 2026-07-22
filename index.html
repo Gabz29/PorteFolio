@@ -1,5 +1,14 @@
 <!doctype html>
 <html lang="fr">
+<!--
+  index.html — Page d'accueil du portfolio / CV de Gabriel Quellec.
+
+  Rôle : structure statique de la page unique (Accueil, Profil, Parcours,
+         Projets, Contact). Toute l'interactivité (accordéon, nav active,
+         animations au scroll) est dans site/js/script.js.
+  Note : chaque <section> porte l'id utilisé par la nav ancrée (#hero,
+         #profil, #parcours, #projets, #contact).
+-->
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,7 +28,8 @@
 <link rel="stylesheet" href="site/css/style.css" />
 </head>
 <body>
-  <!-- Nav flottante, translucide, un lien par section -->
+  <!-- === Navigation === -->
+  <!-- Pilule flottante translucide, un lien par section. -->
   <nav class="navbar">
     <ul>
       <li><a href="#hero" class="nav-link" data-nav>Accueil</a></li>
@@ -30,7 +40,7 @@
     </ul>
   </nav>
 
-  <!-- ===================== HERO ===================== -->
+  <!-- === 1. Hero === -->
   <section id="hero" class="hero">
     <div class="hero-inner">
       <div class="hero-text">
@@ -55,7 +65,7 @@
     </div>
   </section>
 
-  <!-- ===================== PROFIL & COMPÉTENCES (Bento) ===================== -->
+  <!-- === 2. Profil & Compétences (Bento) === -->
   <section id="profil" class="section">
     <div class="section-inner">
       <h2 class="section-title" data-reveal>Profil</h2>
@@ -113,7 +123,7 @@
     </div>
   </section>
 
-  <!-- ===================== PARCOURS (Accordéon) ===================== -->
+  <!-- === 3. Parcours (Accordéon) === -->
   <section id="parcours" class="section">
     <div class="section-inner">
       <h2 class="section-title" data-reveal>Parcours</h2>
@@ -238,11 +248,12 @@
     </div>
   </section>
 
-  <!-- ===================== PROJETS (empilement vertical en scroll) ===================== -->
+  <!-- === 4. Projets (empilement vertical en scroll) === -->
   <!-- Chaque carte est "position: sticky" avec un décalage "top" légèrement
        plus grand que la précédente (voir style.css) : en scrollant, chaque
        carte vient se coller un peu plus bas que celle d'avant, qui reste
-       donc partiellement visible en dépassant par le haut. -->
+       donc partiellement visible en dépassant par le haut. Effet désactivé
+       sous 800px (voir style.css) : cartes simplement empilées. -->
   <section id="projets" class="section">
     <div class="section-inner">
       <h2 class="section-title" data-reveal>Projets</h2>
@@ -350,7 +361,7 @@
     </div>
   </section>
 
-  <!-- ===================== CONTACT ===================== -->
+  <!-- === 5. Contact === -->
   <section id="contact" class="section contact-section">
     <div class="section-inner contact-inner">
       <h2 class="section-title contact-title" data-reveal>Prêt pour l'alternance ?</h2>

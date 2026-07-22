@@ -1,26 +1,34 @@
-/* ============================================================
-   VARIABLES : couleurs/tailles réutilisées. Thème noir sombre,
-   accent bleu/violet gardé seulement pour de petites touches
-   (bordures, liens, boutons) plutôt qu'en grands halos "néon".
-   ============================================================ */
+/*
+   style.css — Styles du portfolio / CV de Gabriel Quellec.
+
+   Rôle : thème noir sombre, accent bleu/violet gardé seulement pour
+          de petites touches (bordures, liens, boutons) plutôt qu'en
+          grands halos "néon".
+   Note : le responsive vit en bas de fichier (voir section 11), pas
+          éparpillé section par section.
+*/
+
+/* === 1. Variables === */
+
+/* Modifier ces valeurs suffit à changer toute la palette du site,
+   sans toucher au reste du CSS. */
 :root {
-  --bg: #05070a;
-  --bg-elevated: #10141d;
-  --border: #232a38;
-  --text: #eef1f6;
-  --text-muted: #8992a8;
-  --accent: #3aa9ff;
-  --accent-2: #8b5cf6;
-  --accent-soft: rgba(58, 169, 255, 0.1);
-  --nav-height: 4.5rem;
-  --font-display: "Space Grotesk", system-ui, sans-serif;
-  --font-sans: "Inter", system-ui, sans-serif;
-  --radius: 20px;
+  --bg: #05070a;              /* fond de <body>, sous la grille */
+  --bg-elevated: #10141d;     /* tuiles, cartes, nav */
+  --border: #232a38;          /* bordures fines de toutes les tuiles/cartes */
+  --text: #eef1f6;            /* texte principal */
+  --text-muted: #8992a8;      /* texte secondaire (labels, sous-titres) */
+  --accent: #3aa9ff;          /* liens, focus, points de liste, contours actifs */
+  --accent-2: #8b5cf6;        /* violet — définie mais non utilisée pour l'instant */
+  --accent-soft: rgba(58, 169, 255, 0.1); /* fond des tags de compétence */
+  --nav-height: 4.5rem;       /* définie pour référence — la nav n'y est pas encore accrochée */
+  --font-display: "Space Grotesk", system-ui, sans-serif; /* titres, noms, chiffres */
+  --font-sans: "Inter", system-ui, sans-serif;             /* texte courant */
+  --radius: 20px;             /* rayon des tuiles/cartes ; boutons et tags utilisent 999px à part */
 }
 
-/* ============================================================
-   RESET DE BASE
-   ============================================================ */
+/* === 2. Reset de base === */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -74,14 +82,13 @@ button {
   color: inherit;
 }
 
-/* ============================================================
-   EFFET D'APPARITION / DISPARITION AU SCROLL
-   Tout élément marqué data-reveal part invisible. script.js bascule
+/* === 3. Effet d'apparition/disparition au scroll === */
+
+/* Tout élément marqué data-reveal part invisible. script.js bascule
    .is-visible en continu (pas juste une fois) : l'élément réapparaît
    en montant depuis le bas, et redisparaît juste avant de passer
    sous la nav flottante en scrollant vers le haut (voir le rootMargin
-   utilisé côté JS).
-   ============================================================ */
+   utilisé côté JS). */
 [data-reveal] {
   opacity: 0;
   transform: translateY(28px);
@@ -93,9 +100,9 @@ button {
   transform: translateY(0);
 }
 
-/* ============================================================
-   NAVIGATION FLOTTANTE : pilule translucide, un lien par section
-   ============================================================ */
+/* === 4. Navigation flottante === */
+
+/* Pilule translucide, un lien par section. */
 .navbar {
   position: fixed;
   top: 1.25rem;
@@ -133,13 +140,12 @@ button {
   color: var(--accent);
 }
 
-/* ============================================================
-   STRUCTURE GÉNÉRALE DES SECTIONS
-   min-height + flex centre le contenu verticalement dans au moins
+/* === 5. Structure générale des sections === */
+
+/* min-height + flex centre le contenu verticalement dans au moins
    un écran de haut (comme le Hero) : sans ça, une section dont le
    contenu est plus court que l'écran colle son contenu contre le
-   haut au lieu de le centrer dans l'espace visible.
-   ============================================================ */
+   haut au lieu de le centrer dans l'espace visible. */
 .section {
   min-height: 100vh;
   display: flex;
@@ -188,11 +194,10 @@ button {
   width: 0.4em;
 }
 
-/* ============================================================
-   HERO
-   Sobre : fond noir uni (juste la grille de fond), texte aligné à
-   gauche, pas de bouton de scroll ni de halo néon.
-   ============================================================ */
+/* === 6. Hero === */
+
+/* Sobre : fond noir uni (juste la grille de fond), texte aligné à
+   gauche, pas de bouton de scroll ni de halo néon. */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -276,9 +281,8 @@ button {
   font-weight: 600;
 }
 
-/* ============================================================
-   BENTO BOX (Profil & Compétences)
-   ============================================================ */
+/* === 7. Bento box (Profil & Compétences) === */
+
 .bento-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -374,9 +378,8 @@ button {
   border-radius: 3px;
 }
 
-/* ============================================================
-   PARCOURS — ACCORDÉON
-   ============================================================ */
+/* === 8. Parcours — accordéon === */
+
 .accordion {
   border-top: 1px solid var(--border);
 }
@@ -441,14 +444,14 @@ button {
   line-height: 1.6;
 }
 
-/* ============================================================
-   PROJETS — EMPILEMENT VERTICAL AU SCROLL
-   Chaque carte est "position: sticky" avec un "top" légèrement plus
+/* === 9. Projets — empilement vertical au scroll === */
+
+/* Chaque carte est "position: sticky" avec un "top" légèrement plus
    grand que la précédente (voir nth-child plus bas). En scrollant,
    chaque carte se colle un peu plus bas que celle d'avant : la
    précédente reste donc visible en dépassant par le haut, au lieu
-   d'être totalement recouverte.
-   ============================================================ */
+   d'être totalement recouverte. Désactivé sous 800px (voir plus bas) :
+   en colonne, le contenu est trop haut pour cet effet. */
 .stack-wrapper {
   max-width: 1100px;
   margin: 0 auto;
@@ -605,9 +608,8 @@ button {
   background: var(--accent);
 }
 
-/* ============================================================
-   CONTACT
-   ============================================================ */
+/* === 10. Contact === */
+
 .contact-section {
   text-align: center;
 }
@@ -701,9 +703,8 @@ button {
   font-weight: 600;
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
+/* === 11. Responsive === */
+
 @media (min-width: 800px) {
   .hero-inner {
     flex-direction: row;

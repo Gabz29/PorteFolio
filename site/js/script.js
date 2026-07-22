@@ -1,10 +1,19 @@
 // ============================================================
-// 1. TITRES DE SECTION : un cadre autour de chaque lettre
+// script.js — Interactions de la page (index.html).
+//
+// Rôle    : anime les titres, gère l'accordéon Parcours, la nav
+//           active et les apparitions au scroll. Aucune dépendance.
+// Entrée  : le DOM d'index.html (.section-title, .accordion-item,
+//           [data-nav], [data-reveal]).
+// Note    : chargé en fin de <body>, donc après le DOM.
+// ============================================================
+
+// === 1. Titres de section : un cadre autour de chaque lettre ===
+//
 // On découpe le texte de chaque .section-title en une série de
 // <span class="letter">, un par caractère. Un espace devient un
 // span "letter-space" (sans cadre, voir style.css), juste pour
 // garder l'espacement entre les mots.
-// ============================================================
 document.querySelectorAll(".section-title").forEach((title) => {
   const text = title.textContent;
   title.textContent = ""; // on vide le titre, on va le reconstruire avec des spans
@@ -21,11 +30,10 @@ document.querySelectorAll(".section-title").forEach((title) => {
   });
 });
 
-// ============================================================
-// 2. ACCORDÉON (section Parcours)
+// === 2. Accordéon (section Parcours) ===
+//
 // Un seul élément ouvert à la fois : cliquer sur un titre ouvre sa
 // carte et referme celle qui était ouverte avant.
-// ============================================================
 const accordionItems = document.querySelectorAll(".accordion-item");
 
 accordionItems.forEach((item) => {
@@ -42,9 +50,7 @@ accordionItems.forEach((item) => {
   });
 });
 
-// ============================================================
-// 3. LIEN ACTIF DU MENU SELON LA SECTION VISIBLE
-// ============================================================
+// === 3. Lien actif du menu selon la section visible ===
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll("[data-nav]");
 
@@ -63,17 +69,17 @@ const navObserver = new IntersectionObserver(
 
 sections.forEach((section) => navObserver.observe(section));
 
-// ============================================================
-// 4. APPARITION / DISPARITION AU SCROLL (tous les [data-reveal])
+// === 4. Apparition/disparition au scroll (tous les [data-reveal]) ===
+//
 // Contrairement à un simple "reveal one-shot", on ne fait JAMAIS
 // unobserve() : la classe .is-visible est retirée dès que l'élément
 // n'est plus dans la zone visible, pas juste ajoutée une fois.
-// rootMargin ne réduit la zone "visible" qu'en HAUT (de --nav-height,
-// la hauteur de la nav flottante) : la limite qui déclenche le
-// fondu est donc pile sous la nav, que l'élément la franchisse en
-// scrollant vers le haut ou vers le bas (l'IntersectionObserver ne
-// se soucie pas de la direction, seulement de la position actuelle).
-// ============================================================
+// rootMargin ne réduit la zone "visible" qu'en HAUT (-90px, à peu près
+// la hauteur de la nav flottante — en dur ici, pas lu depuis la
+// variable CSS --nav-height) : la limite qui déclenche le fondu est
+// donc pile sous la nav, que l'élément la franchisse en scrollant
+// vers le haut ou vers le bas (l'IntersectionObserver ne se soucie pas
+// de la direction, seulement de la position actuelle).
 const revealItems = document.querySelectorAll("[data-reveal]");
 
 const revealObserver = new IntersectionObserver(
